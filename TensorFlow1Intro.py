@@ -3,7 +3,7 @@
 
 from __future__ import absolute_import, division, print_function
 
- code to auto add packages
+# code to auto add packages
 import subprocess
 import sys
 def install(package):
