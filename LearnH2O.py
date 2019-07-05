@@ -44,3 +44,33 @@ h2o_df = h2o.import_file("http://h2o-public-test-data.s3.amazonaws.com/smalldata
 multinomial_fit = H2OGeneralizedLinearEstimator(family = "multinomial")
 multinomial_fit.train(y = 4, x = [0,1,2,3], training_frame = h2o_df)
 
+# Poisson models
+# use swedish insurance data
+h2o_df = h2o.import_file(
+    "http://h2o-public-test-data.s3.amazonaws.com/smalldata/glm_test/Motor_insurance_sweden.txt", sep = '\t')
+poisson_fit = H2OGeneralizedLinearEstimator(family = "poisson")
+poisson_fit.train(y="Claims", x= ["Payment", "Insured", "Kilometres", "Zone", "Bonus", "Make"], training_frame = h2o_df)
+poisson_fit.coef()
+
+# Gamma models
+h2o_df = h2o.import_file("http://h2o-public-test-data.s3.amazonaws.com/smalldata/prostate/prostate.csv")
+gamma_inverse = H2OGeneralizedLinearEstimator(family ="gamma", link = "inverse")
+gammma_inverse.train(y = "DPROS", x = ["AGE", "RACE", "CAPSULE", "DCAPS", "PSA", "VOL"], training_frame = h2o_df)
+
+gamma_log = H2OGeneralizedLinearEstimator(family = "gamma", link = "log")
+gamma_log.train(y="DPROS", x= ["AGE", "RACE", "CAPSULE", "DCAPS", "PSA", "VOL"], training_frame = h2o_df)
+
+# Tweedie 
+# p= 0:  Normal
+# p= 1:  Poisson 
+# p∈(1,2):  Compound Poisson, non-negative with mass at zero
+# p= 2:  Gamma
+# p= 3:  Inverse-Gaussian
+# p >2:  Stable, with support on the positive reals
+
+h2o_df = h2o.import_file("http://h2o-public-test-data.s3.amazonaws.com/smalldata/glm_test/auto.csv")
+tweedie_fit = H2OGeneralizedLinearEstimator(family = "tweedie")
+tweedie_fit.train(y = "y", x = h2o_df.col_names[1:], training_frame=h2o_df)
+
+# Building GLM models
+h2o_df = h2o.import_file("http://h2o-public-test-data.s3.amazonaws.com/smalldata/prostate/prostate.csv")
