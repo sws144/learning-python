@@ -32,3 +32,23 @@ print(np.dot(x,v), "\n")
 
 # matrix and matrix product
 print(np.dot(x,y))
+
+
+# Scipy for mathematics/optimization/statistics, incl. image manipulation
+
+install("scipy")
+install("imageio")
+install("visvis")
+
+from scipy.misc import imread, imsave, imresize 
+import imageio
+import visvis as vv
+
+
+# Read a JPEG image into a numpy array
+img = imageio.imread('C:/Users/SW/Downloads/IMG_20190709_091442.jpg')
+
+# print image
+vv.imshow(img)
+
+a = 3
