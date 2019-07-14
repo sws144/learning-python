@@ -35,7 +35,7 @@ print(np.dot(x,y))
 
 
 # Scipy for mathematics/optimization/statistics, incl. image manipulation
-
+# consider using skimage later
 install("scipy")
 install("imageio")
 install("visvis")
@@ -46,9 +46,29 @@ import visvis as vv
 
 
 # Read a JPEG image into a numpy array
-img = imageio.imread('C:/Users/SW/Downloads/IMG_20190709_091442.jpg')
+img = imageio.imread('C:\Stuff\Important\CareerNCollege\Ad Hoc\Git\learning-python\\fruit.jpg')
 
 # print image
 vv.imshow(img)
 
-a = 3
+# Tinting the image (using R G B notation)
+img_tint = img * [1, 0.45, 0.3] 
+
+# Saving the tinted image 
+imageio.imwrite('C:\Stuff\Important\CareerNCollege\Ad Hoc\Git\learning-python\\fruit_tinted.jpg', img_tint) 
+
+# print tinted image
+vv.imshow(img_tint)
+
+# Resizing the tinted image to be 300 x 300 pixels 
+img_tint_resize = imresize(img_tint, (300, 300)) 
+
+# Saving the resized tinted image 
+imageio.imwrite('C:\Stuff\Important\CareerNCollege\Ad Hoc\Git\learning-python\\fruit_tinted_rezised.jpg', img_tint)
+vv.imshow(img_tint_resize, 2) 
+
+
+# scikit-learn
+# classical ml algorithms 
+
+# sample Decision Tree Classifier
