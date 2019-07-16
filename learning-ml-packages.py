@@ -83,4 +83,29 @@ dataset = datasets.load_iris()
 
 # fit a CART model to data
 model = DecisionTreeClassifier()
-model.fit =(dataset.data, dataset.target)
+model.fit(dataset.data, dataset.target)
+print(model)
+
+# make predictions
+expected = dataset.target
+predicted = model.predict(dataset.data)
+
+# summarize the fit of the model
+print(metrics.classification_report(expected, predicted))
+print(metrics.confusion_matrix(expected, predicted))
+
+# Theano #
+# mathematical expressions for large datasets
+
+install("theano")
+
+import theano 
+import theano.tensor as T
+x = T.dmatrix('x')
+s = 1 / (1+T.exp(-x))
+logistic = theano.function([x],s)
+logistic([[0,1],[-1,-2]])
+
+
+# Tensorflow
+# Google-based high performance computing
