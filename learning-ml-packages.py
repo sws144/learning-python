@@ -109,3 +109,30 @@ logistic([[0,1],[-1,-2]])
 
 # Tensorflow
 # Google-based high performance computing
+
+install("tensorflow")
+import tensorflow as tf
+
+x1 = tf.constant([1,2,3,4])
+x2 = tf.constant([5,6,7,8])
+
+# Multiply 
+result = tf.multiply(x1,x2)
+
+# Initialize session
+sess = tf.Session()
+
+print(sess.run(result))
+
+# Close session
+sess.close()
+
+# Keras
+# ML library on top of others
+
+# Pytorch
+# Computer vision or NLP
+# Example for 2 layer network 
+
+# see https://pytorch.org/get-started/locally/#anaconda-1
+import torch
