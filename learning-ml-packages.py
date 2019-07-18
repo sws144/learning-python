@@ -136,3 +136,7 @@ sess.close()
 
 # see https://pytorch.org/get-started/locally/#anaconda-1
 import torch
+
+dtype = torch.float
+device = torch.device("cpu")
+# device = torch.device("cuda:0") Uncomment to run on GPU
