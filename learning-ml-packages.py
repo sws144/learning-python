@@ -140,3 +140,37 @@ import torch
 dtype = torch.float
 device = torch.device("cpu")
 # device = torch.device("cuda:0") Uncomment to run on GPU
+
+## TODO later
+
+
+# Pandas 
+# for data analysis
+
+install("pandas")
+import pandas as pd 
+
+# to make it dictionary
+data = {"country": ["Brazil", "Russia", "India", "China", "South Africa"], 
+       "capital": ["Brasilia", "Moscow", "New Dehli", "Beijing", "Pretoria"], 
+       "area": [8.516, 17.10, 3.286, 9.597, 1.221], 
+       "population": [200.4, 143.5, 1252, 1357, 52.98] } 
+
+data_table = pd.DataFrame(data)  # to make it into pandas dataframe
+
+print(data_table)
+
+# Matplotlib
+# for linear plot 
+
+install("matplotlib")
+install("numpy")
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0,10,100)
+
+plt.plot(x,x,label='linear')
+plt.show(block = False) #show without stopping code
+plt.legend()
