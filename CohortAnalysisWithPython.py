@@ -18,8 +18,21 @@ import matplotlib as mpl
 pd.set_option('max_columns', 50)
 mpl.rcParams['lines.linewidth'] = 2
 
-%matplotlib inline
+#%matplotlib inline
 
+# import data
 df = pd.read_excel('chapter-12-relay-foods.xlsx', sheet_name="Pilot Study Data")
 df.head()
 
+# 1 create period column based on order date
+df['OrderPeriod'] = df.OrderDate.apply(lambda x : x.strftime('%Y-%m'))
+df.head()
+
+# 2 determine user's cohort group
+df.set_index('UserId', inplace = True)
+type(df)
+df['CohortGroup'] = df.groupby(level=0)['OrderDate'].min().apply(lambda x : x.strftime('%Y-%m'))
+df.reset_index(inplace=True)
+df.head()
+
+# 3 Rollup data by CohortGroup & OrderPeriod
