@@ -22,4 +22,3 @@ results = c.fetchall()
 import pandas as pd
 results_df = pd.read_sql_query("SELECT * FROM [Daily]", conn)
 results_df.head()
-
