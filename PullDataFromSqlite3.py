@@ -20,7 +20,6 @@ results = c.fetchall()
 # using pandas
 # pip install "pandas"
 import pandas as pd
-pd.read_sql_query("SELECT * FROM [Daily]", conn)
-
-
+results_df = pd.read_sql_query("SELECT * FROM [Daily]", conn)
+results_df.head()
 
