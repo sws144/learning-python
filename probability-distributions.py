@@ -13,7 +13,7 @@ RANDOM_STATE = 31415
 
 ages = dataset.age.dropna()
 
-# Uniform distribution
+# %% Uniform distribution
 from scipy.stats import uniform
 uniform_dist = uniform(loc = 0, scale = 20)
 uniform_dist.rvs(size = 10, random_state = RANDOM_STATE)
@@ -23,7 +23,7 @@ ax.plot(x,uniform_dist.pdf(x),'r--',lw=2)
 plt.title('Uniform distribution of values between 0 and 20')
 plt.show(block=False)   
 
-# Bernoulli
+# %% Bernoulli
 from scipy.stats import bernoulli
 countSurvived = dataset[dataset.survived ==1].survived.count()
 countAll = dataset.survived.count()
