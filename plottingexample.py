@@ -11,7 +11,6 @@ matplotlib.get_configdir()
 matplotlib.style.use('classic') #to make sure is white
 # matplotlib.style.use('dark_background') #backup/default is dark
 
-
 # %% read data 
 # assumes file is in \\learning-python
 xlswb  = 'learning-python\\data_zero_bond_yield_curves.xlsx' 
