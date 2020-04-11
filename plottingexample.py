@@ -13,7 +13,7 @@ matplotlib.style.use('classic') #to make sure is white
 
 # %% read data 
 # assumes file is in \\learning-python
-xlswb  = 'learning-python\\data_zero_bond_yield_curves.xlsx' 
+xlswb  = 'data_zero_bond_yield_curves.xlsx' 
 data = pd.read_excel(xlswb, index_col='year')
 
 #%% create plot
