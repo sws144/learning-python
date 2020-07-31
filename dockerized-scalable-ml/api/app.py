@@ -15,6 +15,7 @@ def api_call():
     try:
         test_json = request.get_json()
         val = []
+        # print(test_json)
         for dic in test_json:
             row = []
             row.append(dic['sepal_length'])
@@ -31,6 +32,6 @@ def api_call():
         responses = jsonify(predictions=pred_dict)
         responses.status_code = 200
     except Exception as e:
-        responses = jsonify(predictions={'error':'some error occured, please try again later'})
+        responses = jsonify(predictions={'error':'some error occured, please try again later', 'json': str(test_json)})
         responses.status_code = 404
     return (responses)        
